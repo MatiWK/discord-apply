@@ -6,7 +6,7 @@ const Feature = ({
     title
 }: featureProps) => {
     return (
-        <div className=" rounded-xl ">
+        <div className=" rounded-xl my-4">
             <div className="rounded-t-xl flex justify-center text-white  bg-black px-2">
                 <h1 className="text-2xl font-bold py-2" >{title}</h1>
             </div>
