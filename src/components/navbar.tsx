@@ -1,9 +1,32 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { XIcon } from 'lucide-react';
 
+
+
 export const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
+
+  function useOutsideAlerter(ref: React.RefObject<HTMLElement>) {
+    useEffect(() => {
+      function handleClickOutside(event: MouseEvent) {
+        if (ref.current && !ref.current.contains(event.target as Node)) {
+          setOpen(false);
+      const burgerIcon = document.querySelector<HTMLDivElement>('.burger');
+      if (!burgerIcon) return false;
+  
+      burgerIcon.style.width = "0px";
+        }
+      }
+  
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  }
+  const divRef = useRef<HTMLDivElement>(null);
+  useOutsideAlerter(divRef);
 
   const onOpen = () => {
     setOpen((prev) => !prev);
@@ -49,7 +72,7 @@ export const Navbar = () => {
       <div className="flex lg:hidden text-white hover:text-slate-500 duration-300 transition-all">
         <button onClick={open ? onClose : onOpen}><GiHamburgerMenu size={25} /></button>
       </div>
-      <div className='w-[0px] burger duration-500 opacity-95 overflow-x-hidden bg-[#222] text-white font-bold min-h-screen flex flex-col space-y-5 fixed top-0 left-0 items-start text-3xl open z-[900]'>
+      <div ref={divRef} className='w-[0px] lg:hidden burger duration-500 opacity-95 overflow-x-hidden bg-[#222] text-white font-bold min-h-screen flex flex-col space-y-5 fixed top-0 left-0 items-start text-3xl open z-[900]'>
         <button className='absolute top-2 right-2 hover:text-slate-600 duration-500' onClick={onClose}>
           <XIcon size={35} />
         </button >
