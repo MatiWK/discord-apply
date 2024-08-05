@@ -25,22 +25,22 @@ export const Navbar = () => {
     <div className='flex justify-between p-4'>
       <h1 className=' text-4xl lg:text-7xl text-white font-sacramento font-bold cursor-pointer'>Light</h1>
       <ul className='gap-x-10 font-semibold text-white hidden lg:flex lg:text-xl font-serif'>
-        <a href='/pricing' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
+        <a href='/' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
           <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
             pricing
           </span>
         </a>
-        <a href='/contact' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
+        <a href='/' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
           <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
             contact
           </span>
         </a>
-        <a href='/FAQs' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
+        <a href='/' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
           <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
             FAQs
           </span>
         </a>
-        <a href='/about us' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
+        <a href='/' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
           <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
             about us
           </span>
