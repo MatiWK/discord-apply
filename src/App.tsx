@@ -13,7 +13,10 @@ function App() {
 
         </div>
         <MainHeader />
+        <div className='min-h-[30vh]'>
         <Features />
+
+        </div>
 
       </div>
     </>

@@ -1,3 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.sacramento-regular {
+    font-family: "Sacramento", "cursive";
+    
+  }
+
+
+/* Custom CSS for scale animation */
+/* .scale-0 {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.scale-100 {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+} */

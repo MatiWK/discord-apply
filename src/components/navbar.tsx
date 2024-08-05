@@ -1,47 +1,71 @@
-import { useState } from "react"
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { XIcon } from 'lucide-react';
 
 export const Navbar = () => {
-  const [open, setOpen] = useState<boolean>(false)
-  const openMenu = () => {
-    setOpen((prev) => !prev)
-  }
+  const [open, setOpen] = useState<boolean>(false);
+
+  const onOpen = () => {
+    setOpen((prev) => !prev);
+    const burgerIcon = document.querySelector<HTMLDivElement>('.burger');
+    if (!burgerIcon) return false;
+
+    burgerIcon.style.width = "70%";
+  };
+
+  const onClose = () => {
+    setOpen((prev) => !prev);
+    const burgerIcon = document.querySelector<HTMLDivElement>('.burger');
+    if (!burgerIcon) return false;
+
+    burgerIcon.style.width = "0px";
+  };
 
   return (
-    <div className='flex justify-between '>
-        <h1 className='font-bold text-3xl text-white'>Light</h1>
-        <ul className=' gap-x-5 font-semibold text-white hidden md:flex'>
-            <a href='/pricing' className='hover:text-slate-500 duration-300 transition-colors'>pricing</a>
-            <a href='/contact'  className='hover:text-slate-500 duration-300 transition-colors'>contact</a>
-            <a href='/FAQs' className='hover:text-slate-500 duration-300 transition-colors'>FAQs</a>
-            <a href='about us' className='hover:text-slate-500 duration-300 transition-colors'>about us</a>
-        </ul>
-        <div className="flex md:hidden text-white hover:text-slate-500 duration-300 transition-all">
-          <button onClick={openMenu}>---</button>
-        </div>
-        {open &&
-         <div className={`fixed top-0 left-0 min-h-screen w-[60%] bg-slate-900 transition-all duration-300`}>
-          <div className="absolute top-2 right-2">
-            <button onClick={openMenu} className="text-3xl text-white hover:text-slate-300 transition-colors duration-300">x</button>
-          </div>
-           <ul className=' p-[20%] text-white flex-col p-4 text-3xl space-y-5'>
-            <li>
-            <a href='/pricing' className='hover:text-slate-500 duration-300 transition-colors flex justify-center '>pricing</a>
-            </li>
-            <li>
-            <a href='/contact'  className='hover:text-slate-500 duration-300 transition-colors justify-center flex '>contact</a>
-
-            </li>
-            <li>
-            <a href='/FAQs' className='hover:text-slate-500 duration-300 transition-colors justify-center flex '>FAQs</a>
-
-            </li>
-            <li>
-            <a href='about us' className='hover:text-slate-500 duration-300 transition-colors justify-center flex '>about us</a>
-
-            </li>
-        </ul>
-        </div>
-        }
+    <div className='flex justify-between p-4'>
+      <h1 className=' text-4xl lg:text-7xl text-white font-sacramento font-bold cursor-pointer'>Light</h1>
+      <ul className='gap-x-10 font-semibold text-white hidden lg:flex lg:text-xl font-serif'>
+        <a href='/pricing' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
+          <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+            pricing
+          </span>
+        </a>
+        <a href='/contact' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
+          <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+            contact
+          </span>
+        </a>
+        <a href='/FAQs' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
+          <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+            FAQs
+          </span>
+        </a>
+        <a href='/about us' className='hover:text-slate-500 group transition-all duration-300 ease-in-out'>
+          <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+            about us
+          </span>
+        </a>
+      </ul>
+      <div className="flex lg:hidden text-white hover:text-slate-500 duration-300 transition-all">
+        <button onClick={open ? onClose : onOpen}><GiHamburgerMenu size={25} /></button>
+      </div>
+      <div className='w-[0px] burger duration-500 opacity-95 overflow-x-hidden bg-[#222] text-white font-bold min-h-screen flex flex-col space-y-5 fixed top-0 left-0 items-start text-3xl open z-[900]'>
+        <button className='absolute top-2 right-2 hover:text-slate-600 duration-500' onClick={onClose}>
+          <XIcon size={35} />
+        </button >
+        <a href="Pricing" className='relative hover:scale-110 mx-10 pt-10 hover:text-gray-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]'>
+          <span className=''>Introduction</span>
+        </a>
+        <a href="About us" className='relative hover:scale-110 mx-10 hover:text-gray-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]'>
+          <span>Experience</span>
+        </a>
+        <a href="Features" className='relative hover:scale-110 mx-10 hover:text-gray-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]'>
+          <span>Education</span>
+        </a>
+        <a href="Contact" className='relative hover:scale-110 mx-10 hover:text-gray-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]'>
+          <span>Contact</span>
+        </a>
+      </div>
     </div>
-  )
+  );
 }
