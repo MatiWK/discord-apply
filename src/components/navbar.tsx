@@ -8,7 +8,7 @@ export const Navbar = () => {
 
   return (
     <div className='flex justify-between '>
-        <h1 className='font-bold text-3xl'>Light</h1>
+        <h1 className='font-bold text-3xl text-white'>Light</h1>
         <ul className=' gap-x-5 font-semibold text-white hidden md:flex'>
             <a href='/pricing' className='hover:text-slate-500 duration-300 transition-colors'>pricing</a>
             <a href='/contact'  className='hover:text-slate-500 duration-300 transition-colors'>contact</a>
@@ -23,21 +23,20 @@ export const Navbar = () => {
           <div className="absolute top-2 right-2">
             <button onClick={openMenu} className="text-3xl text-white hover:text-slate-300 transition-colors duration-300">x</button>
           </div>
-           <ul className='text-white flex-col p-4 text-xl space-y-2'>
+           <ul className=' p-[20%] text-white flex-col p-4 text-3xl space-y-5'>
             <li>
-            <a href='/pricing' className='hover:text-slate-500 duration-300 transition-colors'>pricing</a>
+            <a href='/pricing' className='hover:text-slate-500 duration-300 transition-colors flex justify-center '>pricing</a>
+            </li>
+            <li>
+            <a href='/contact'  className='hover:text-slate-500 duration-300 transition-colors justify-center flex '>contact</a>
 
             </li>
             <li>
-            <a href='/contact'  className='hover:text-slate-500 duration-300 transition-colors'>contact</a>
+            <a href='/FAQs' className='hover:text-slate-500 duration-300 transition-colors justify-center flex '>FAQs</a>
 
             </li>
             <li>
-            <a href='/FAQs' className='hover:text-slate-500 duration-300 transition-colors'>FAQs</a>
-
-            </li>
-            <li>
-            <a href='about us' className='hover:text-slate-500 duration-300 transition-colors'>about us</a>
+            <a href='about us' className='hover:text-slate-500 duration-300 transition-colors justify-center flex '>about us</a>
 
             </li>
         </ul>
